@@ -8,7 +8,10 @@ COPY yarn.lock .
 RUN yarn install
 
 COPY . .
+
+  
+FROM tsl0922/ttyd
 ARG PORT
 
 EXPOSE $PORT
-CMD [ "yarn", "run", "start" ]
+CMD [ "ttyd", "--port", "$PORT", "bash" ]
