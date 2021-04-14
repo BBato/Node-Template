@@ -8,6 +8,7 @@ COPY yarn.lock .
 RUN yarn install
 
 COPY . .
+ENV PORT
 
-EXPOSE 80
+EXPOSE $PORT
 CMD [ "yarn", "run", "start" ]
