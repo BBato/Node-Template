@@ -9,5 +9,9 @@ RUN yarn install
 
 COPY . .
 
-EXPOSE 80
-CMD [ "yarn", "run", "start" ]
+  
+FROM tsl0922/ttyd
+ARG PORT
+
+EXPOSE $PORT
+CMD [ "ttyd", "--port", "$PORT", "bash" ]
